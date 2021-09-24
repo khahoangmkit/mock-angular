@@ -1,0 +1,30 @@
+.login-container {
+  border: 1px solid #000;
+  padding: 3em;
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    font-size: 2em;
+    font-weight: bold;
+    font-family: "Arial";
+    color: #ED2553;
+    width: 100%;
+    float: left;
+    line-height: 46px;
+    letter-spacing: 2px;
+  }
+
+
+  .input-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: .5em;
+  }
+
+  .button-login {
+    padding: 1em;
+    margin: 0.5em;
+  }
+}
