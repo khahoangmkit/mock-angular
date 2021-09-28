@@ -1,21 +1,34 @@
-<form>
+<form autocomplete="off" autocapitalize="off" [formGroup]="formLogin" (ngSubmit)="onSubmit()">
   <div class="login-container">
     <div class="title">LOGIN</div>
 
+    <div class="error-message" [hidden]="this.isError">
+      <p>Password is required</p>
+    </div>
     <div class="input-content">
       <label for="name">Username</label>
-      <input type="text" name="name" id="name">
-      <span class="spin"></span>
+      <div class="input_field">
+        <input type="text" name="username" id="name" formControlName="username">
+      </div>
+      <div class="error-message" *ngIf="formLogin.hasError('required',
+      ['username'])">
+        <p>Username is required</p>
+      </div>
     </div>
 
     <div class="input-content">
       <label for="pass">Password</label>
-      <input type="password" name="pass" id="pass">
-      <span class="spin"></span>
+      <div class="input_field">
+        <input type="password" name="password" id="pass" formControlName="password">
+      </div>
     </div>
 
     <div class="button-login">
-      <button><span>GO</span></button>
+      <button class="active" type="submit">LOG IN</button>
+    </div>
+
+    <div class="register">
+      <p (click)="register()">Create an account? </p>
     </div>
 
   </div>

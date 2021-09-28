@@ -1,4 +1,4 @@
-.login-container {
+.register-container {
   width: 40%;
   height: auto;
   margin: 2em auto;
@@ -11,7 +11,6 @@
 
   .title {
     font-size: 2em;
-    margin-bottom: 1em;
     font-weight: bold;
     font-family: "Arial";
     color: #ED2553;
@@ -23,7 +22,7 @@
 
 
   .input-content {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     width: 100%;
 
     label {
@@ -46,11 +45,6 @@
         font-size: 16px;
         border-radius: 3px;
       }
-    }
-
-    .error-message {
-      position: absolute;
-      color: #ED2553;
     }
 
   }

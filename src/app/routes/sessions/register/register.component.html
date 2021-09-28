@@ -1,1 +1,35 @@
-<p>register works!</p>
+<form autocomplete="off" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div class="register-container">
+    <div class="title">Register</div>
+
+    <div class="input-content">
+      <label for="name">Username</label>
+      <div class="input_field">
+        <input type="text" name="username" id="name" formControlName="username" required>
+      </div>
+    </div>
+
+    <div class="input-content">
+      <label for="pass">Password</label>
+      <div class="input_field">
+        <input type="password" name="password" id="pass" formControlName="password" required>
+      </div>
+    </div>
+
+    <div class="input-content">
+      <label for="re-pass">Confirm Password</label>
+      <div class="input_field">
+        <input type="password" name="rePassword" id="re-pass" formControlName="rePassword" required>
+      </div>
+    </div>
+
+    <div class="button-login">
+      <button class="active" type="submit">LOG IN</button>
+    </div>
+
+    <div class="register">
+      <p (click)="login()">You have an account? </p>
+    </div>
+
+  </div>
+</form>
