@@ -1,6 +1,8 @@
-export class QuestionDto{
-  // @ts-ignore
-  title: string;
-  // @ts-ignore
-  choices: any;
+export interface QuestionDto {
+  answer1: string;
+  question: string;
+  answer2: string;
+  answer3: string;
+  answer4: string;
+  correctanswer: string;
 }

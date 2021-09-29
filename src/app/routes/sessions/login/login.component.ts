@@ -33,9 +33,9 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.formLogin.controls.username.errors);
     if( this.formLogin.controls.username.errors || this.formLogin.controls.password.errors) {
       this.toastr.error('Username or password invalid');
+      console.log('Username or password invalid');
     } else {
       const data = {
         username: this.formLogin.controls.username.value,
