@@ -1,9 +1,14 @@
 .question-container {
   width: 80%;
-  margin: 10rem auto;
+  margin: 2rem auto;
   display: flex;
   flex-direction: column;
 
+  p{
+    color: #fff;
+    font-size: 1.6rem;
+    padding-bottom: .5rem;
+  }
   .title-question {
     background: #f5f4f4;
     border-radius: 5px;
@@ -29,10 +34,19 @@
       margin: 15px;
       padding: 1rem 1rem;
       cursor: pointer;
-      &:hover {
-        background: #bdc3c7;
-      }
     }
+    .active {
+      background: #3498db;
+    }
+
+    .correct {
+      background: #1dbf73;
+    }
+
+    .incorrect {
+      background: #ED2553;
+    }
+
   }
 
 }

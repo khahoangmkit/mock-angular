@@ -1,9 +1,34 @@
 <div class="home-page">
-  <div class="header">h</div>
-  <div class="survey-container">
+<!--  <div class="header">-->
+<!--    <div class="skip-button button-action" (click)="nextQuestion(true)">Skip</div>-->
+<!--  </div>-->
+
+  <div class="survey-container" *ngIf="!showListQuestion" >
     <app-question
       (chooseAnswer)="saveAnswer($event)"
+      [question]="listQuestion[index]"
+      [checked]="getCheck(null)"
+      [indexQuestion]="index"
+      [totalQuestion]="listQuestion.length"
+
     ></app-question>
   </div>
-  <div class="footer"></div>
+
+  <div class="survey-container" *ngIf="showListQuestion">
+      <div class="result">Result: {{this.total}} / {{this.listQuestion.length}}</div>
+      <app-question
+        *ngFor="let item of listQuestion, let index = index"
+        [question]="item"
+        [indexQuestion]="index"
+        [checked]="getCheck(item._id)"
+        [totalQuestion]="listQuestion.length"
+        [isCorrect]="checkCorrect(item._id)"
+      >
+      </app-question>
+  </div>
+
+  <div class="footer" *ngIf="!showListQuestion">
+    <div class="pre button-action" (click)="nextQuestion(false)">Pre</div>
+    <div class="next button-action" (click)="nextQuestion(true)"> Next</div>
+  </div>
 </div>

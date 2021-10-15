@@ -9,7 +9,7 @@ import {RegisterComponent} from "./routes/sessions/register/register.component";
 const routes: Routes = [
   {
     path: 'home',
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     component: HomePageComponent
   },
   {

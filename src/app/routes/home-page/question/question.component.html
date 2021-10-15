@@ -1,11 +1,20 @@
-<div class="question-container">
+<div class="question-container" *ngIf="question">
+  <p>Question {{indexQuestion + 1}} of {{totalQuestion}}</p>
   <div class="title-question">
     {{this.question.question}}
   </div>
   <div class="option-content">
-    <div class="option" (click)="choose(this.question.answer1)"> {{this.question.answer1}}</div>
-    <div class="option" (click)="choose(this.question.answer2)"> {{this.question.answer2}}</div>
-    <div class="option" (click)="choose(this.question.answer3)"> {{this.question.answer3}}</div>
-    <div class="option" (click)="choose(this.question.answer4)"> {{this.question.answer4}}</div>
+    <div class="{{getClass(this.question.answer1)}}" (click)="select(this.question.answer1)">
+      {{this.question?.answer1}}
+    </div>
+    <div class="{{getClass(this.question.answer2)}}" (click)="select(this.question.answer2)">
+      {{this.question?.answer2}}
+    </div>
+    <div class="{{getClass(this.question.answer3)}}" (click)="select(this.question.answer3)">
+      {{this.question?.answer3}}
+    </div>
+    <div class="{{getClass(this.question.answer4)}}" (click)="select(this.question.answer4)">
+      {{this.question?.answer4}}
+    </div>
   </div>
 </div>

@@ -1,6 +1,7 @@
 export const AppConstant = {
   ACCESS_TOKEN: 'accessToken',
-  ApiUrl: 'http://localhost:3000/v1',
+  ApiUrl: 'http://localhost:3737/v1',
+  totalQuestion: 3,
   ErrorCode: {
     NotPermissionFound: '403',
     NotPermissionEmail: '408',

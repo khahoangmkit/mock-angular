@@ -4,5 +4,5 @@ export interface QuestionDto {
   answer2: string;
   answer3: string;
   answer4: string;
-  correctanswer: string;
+  _id: string;
 }

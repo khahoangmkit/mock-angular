@@ -8,25 +8,46 @@ import {QuestionDto} from "../../../_module/question-dto";
 })
 export class QuestionComponent implements OnInit {
 
-  @Input() question: QuestionDto;
+  @Input() question!: QuestionDto;
   @Output() chooseAnswer = new EventEmitter<string>();
+  @Input() checked!: string;
+  @Input() indexQuestion!: number;
+  @Input() totalQuestion!: number;
+  @Input() isCorrect!: boolean;
+  answer: any
 
   constructor() {
-    this.question = {
-      question: "What time is it???",
-      answer1: "I don't know",
-      answer2: "Right !",
-      answer3: "No, It isn't",
-      answer4: "12:30",
-      correctanswer: "12:30",
-    }
-  }
-
-  choose(value: string) {
-    this.chooseAnswer.emit(value);
+    this.answer = []
   }
 
   ngOnInit(): void {
+    console.log(this.isCorrect, this.question.question)
+  }
+
+  select(value: any) {
+    this.answer = value;
+
+    const temp: any = {
+      questionId: this.question._id,
+      answer: value
+    }
+    this.chooseAnswer.emit(temp);
+  }
+
+  getClass(value: any) {
+    if( value == this.checked) {
+      if(this.isCorrect) return "option correct";
+      if(this.isCorrect === false) return "option incorrect";
+      return "option active";
+    }
+    if (this.answer === value) {
+      if(this.isCorrect) return "option correct";
+      if(this.isCorrect === false) return "option incorrect";
+
+      return "option active";
+    }
+
+    return "option";
   }
 
 }

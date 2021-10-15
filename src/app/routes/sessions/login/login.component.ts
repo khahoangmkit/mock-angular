@@ -3,6 +3,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 import {AuthService} from "../../../_services/auth.service";
+import {CookieService} from "ngx-cookie-service";
+import {AppConstant} from "../../../_constant/app-constant";
 
 @Component({
   selector: 'app-login',
@@ -19,7 +21,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private toastr: ToastrService,
-    private authService: AuthService
+    private authService: AuthService,
+    private cookieService: CookieService
   ) {
     this.username = new FormControl('', [Validators.required]);
     this.password = new FormControl('', [Validators.required]);
@@ -41,8 +44,9 @@ export class LoginComponent implements OnInit {
         username: this.formLogin.controls.username.value,
         password: this.formLogin.controls.password.value
       }
-      this.authService.login(data).subscribe(response => {
-        console.log('info res', response);
+      this.authService.login(data).subscribe((response : any) => {
+        this.cookieService.set(AppConstant.ACCESS_TOKEN, response.tokens.access.token);
+        this.router.navigate(['/home']);
       })
     }
   }
